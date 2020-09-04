@@ -1,0 +1,27 @@
+body {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+thead {
+    background-color: black;
+    color: #FFFFFF;
+}
+
+.card-body {
+    border: none;
+}
+
+*,*:before,*:after {
+    box-sizing: border-box;
+}
+
+:after {
+	content: "";
+}
+
+section {
+    position: relative;
+    left: 100px;
+}

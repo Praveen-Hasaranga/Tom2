@@ -1,0 +1,19 @@
+.form-container {
+    background-color: #F1F1F1;
+    padding-top: 40px;
+    padding-right: 100px;
+    padding-bottom: 40px;
+    padding-left: 100px;
+}
+
+.form-container input {
+    float: right;
+}
+
+.form-container select {
+    float: right;
+}
+
+.form-container textarea {
+    padding-right: 27px;
+}

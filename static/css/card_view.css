@@ -1,0 +1,112 @@
+.courses-container:hover {
+    background-color: #DBDBDB;
+}
+
+.courses-container {
+    background-color: #F1F1F1;
+}
+
+.course {
+    background-color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    max-width: 100%;
+    margin: 20px;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.course-info h6 {
+    opacity: 0.4;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    overflow: hidden;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+}
+
+.course-preview h6 {
+    opacity: 1.0;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    overflow: hidden;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+}
+
+.course h2 {
+    letter-spacing: 1px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.course a {
+    opacity: 0.9;
+    margin: 10px;
+    padding-top: 10px;
+    letter-spacing: 0px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.course-preview {
+    background-color: #546A7B;
+    color: #fff;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    font-size: 12px;
+    width: 40%;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.course-info {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    position: relative;
+    width: 60%;
+    background-color: #FBFBFB;
+}
+
+.btn-group  {
+    background-color: #546A7B;
+    border: 1px #546A7B;
+    color: white;
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none;
+}
+
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group:hover {
+    background-color: #000000;
+}

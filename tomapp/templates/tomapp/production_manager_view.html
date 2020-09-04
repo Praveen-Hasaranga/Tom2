@@ -1,0 +1,139 @@
+{% extends 'tomapp/main.html' %}
+{% block content %}
+
+
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">Queue</th>
+                    </tr>
+                </thead>
+
+                </table>
+                {% for order in orders_que%}
+
+                            <div class="courses-container">
+                                <div class="course">
+
+                                    <div class="course-preview">
+                                        <h6>{{order.job_id}}</h6>
+                                        <a href="#"><i class="fas fa-chevron-right">view Details</i></a>
+                                    </div>
+
+                                    <div class="course-info">
+
+
+                                            <h6>Price : {{order.value}}</h6>
+
+                                            <form action="{% url 'move_to_ws' order.job_id %}" method="POST" >
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn-group">&#8680</button>
+                                            </form>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                {% endfor %}
+
+
+
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">Work Shop</th>
+                    </tr>
+                </thead>
+
+                </table>
+                {% for order in orders_ws%}
+
+                            <div class="courses-container">
+                                <div class="course">
+
+                                    <div class="course-preview">
+                                        <h6>{{order.sub_workshop_id}}</h6>
+                                        <a href="#"><i class="fas fa-chevron-right">view Details</i></a>
+                                    </div>
+
+                                    <div class="course-info">
+
+
+                                            <h6>Price : {{order.value}}</h6>
+
+
+                                            <form action="{% url 'move_to_qw' order.sub_workshop_id %}" method="POST" >
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn-group">&#8678</button>
+                                            </form>
+
+                                            <a href="{% url 'ws_split' order.sub_workshop_id %}" class="btn-group">Split</a>
+                                            <form action="{% url 'move_to_wip' order.sub_workshop_id %}" method="POST" >
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn-group">&#8680</button>
+                                            </form>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                {% endfor %}
+
+
+
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">WIP</th>
+                    </tr>
+                </thead>
+
+                </table>
+                {% for order in orders_wip%}
+
+                            <div class="courses-container">
+                                <div class="course">
+
+                                    <div class="course-preview">
+                                        <h6>{{order.sub_wip_id}}</h6>
+                                        <a href="#"><i class="fas fa-chevron-right">view Details</i></a>
+                                    </div>
+
+                                    <div class="course-info">
+
+                                            <h6>Price : {{order.value}}</h6>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                {% endfor %}
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

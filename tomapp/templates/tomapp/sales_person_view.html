@@ -1,0 +1,124 @@
+{% extends 'tomapp/main.html' %}
+{% block content %}
+
+
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">Job Registration</th>
+                    </tr>
+                </thead>
+
+                </table>
+
+                <div class="form-container">
+
+
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" name="Submit">
+                        </form>
+
+
+                </div>
+
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">Registered Jobs</th>
+                    </tr>
+                </thead>
+
+                </table>
+                {% for order in orders_reg%}
+
+                            <div class="courses-container">
+                                <div class="course">
+
+                                    <div class="course-preview">
+                                        <h6>{{order.job_id}}</h6>
+                                        <a href="#"><i class="fas fa-chevron-right">view Details</i></a>
+                                    </div>
+
+                                    <div class="course-info">
+
+
+                                            <h6>Price : {{order.value}}</h6>
+
+                                            <form action="{% url 'move_to_que' order.job_id %}" method="POST" >
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn-group">&#8680</button>
+                                            </form>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                {% endfor %}
+
+
+
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">Queue</th>
+                    </tr>
+                </thead>
+
+                </table>
+                {% for order in orders_que%}
+
+                            <div class="courses-container">
+                                <div class="course">
+
+                                    <div class="course-preview">
+                                        <h6>{{order.job_id}}</h6>
+                                        <a href="#"><i class="fas fa-chevron-right">view Details</i></a>
+                                    </div>
+
+                                    <div class="course-info">
+
+
+                                            <h6>Price : {{order.value}}</h6>
+
+                                            <form action="{% url 'move_to_reg' order.job_id %}" method="POST" >
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn-group">&#8678</button>
+                                            </form>
+
+
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                {% endfor %}
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

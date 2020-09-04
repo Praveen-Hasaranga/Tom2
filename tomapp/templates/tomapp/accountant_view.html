@@ -1,0 +1,90 @@
+{% extends 'tomapp/main.html' %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">Pending Invoices</th>
+                    </tr>
+                </thead>
+
+                </table>
+                {% for order in invoice_pend%}
+
+                            <div class="courses-container">
+                                <div class="course">
+
+                                    <div class="course-preview">
+                                        <h6>{{order.invoice_id}}</h6>
+                                        <a href="#"><i class="fas fa-chevron-right">view Details</i></a>
+                                    </div>
+
+                                    <div class="course-info">
+
+
+                                            <h6>Price : {{order.value}}</h6>
+
+                                            <form action="{% url 'move_to_invoice_comp' order.invoice_id %}" method="POST" >
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn-group">&#8680</button>
+                                            </form>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                {% endfor %}
+
+
+
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+                    <tr style="text-align:center">
+                        <th colspan="2">Completed Invoices</th>
+                    </tr>
+                </thead>
+
+                </table>
+                {% for order in invoice_comp%}
+
+                            <div class="courses-container">
+                                <div class="course">
+
+                                    <div class="course-preview">
+                                        <h6>{{order.invoice_id}}</h6>
+                                        <a href="#"><i class="fas fa-chevron-right">view Details</i></a>
+                                    </div>
+
+                                    <div class="course-info">
+
+
+                                            <h6>Price : {{order.value}}</h6>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                {% endfor %}
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
